@@ -5,12 +5,23 @@ import Sidebar from "./components/Sidebar";
 import uuid from "react-uuid";
 
 function App() {
-  const [notes, setNotes] = useState(JSON.parse(localStorage.getItem("notes")) || []);
+  const [notes, setNotes] = useState(
+    JSON.parse(localStorage.getItem("notes")) || []
+  );
   const [activeNote, setActiveNote] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
+
+  // relaod時にactiveNoteを設定する
+  useEffect(() => {
+    if (notes.length > 0) {
+      setActiveNote(notes[0].id);
+    } else {
+      setActiveNote(false);
+    }
+  }, []);
 
   const onAddNote = () => {
     console.log("新しくノートが追加されました");
