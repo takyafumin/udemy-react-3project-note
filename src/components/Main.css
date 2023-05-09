@@ -45,3 +45,12 @@ textarea {
   padding: 0 25px 25px 25px;
   line-height: 2rem;
 }
+
+.no-active-note {
+    width: 70%;
+    height: 100vh;
+    line-height: 100vh;
+    text-align: center;
+    font-size: 2rem;
+    color: #999;
+}
