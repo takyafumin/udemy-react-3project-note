@@ -6,6 +6,7 @@ import uuid from "react-uuid";
 
 function App() {
   const [notes, setNotes] = useState([]);
+  const [activeNote, setActiveNote] = useState(false);
 
   const onAddNote = () => {
     console.log("新しくノートが追加されました");
@@ -30,6 +31,8 @@ function App() {
         onAddNote={onAddNote}
         notes={notes}
         onDeleteNote={onDeleteNote}
+        activeNote={activeNote}
+        setActiveNote={setActiveNote}
       ></Sidebar>
       <Main></Main>
     </div>
